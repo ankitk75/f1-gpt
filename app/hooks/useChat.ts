@@ -25,6 +25,7 @@ export interface UseChatReturn {
   setInput: (input: string) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  clearMessages: () => void;
 }
 
 export function useChat(options: UseChatOptions = {}): UseChatReturn {
@@ -41,16 +42,30 @@ export function useChat(options: UseChatOptions = {}): UseChatReturn {
   const [error, setError] = useState<Error | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const generateId = () => {
+  const generateId = useCallback(() => {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
-  };
+  }, []);
 
-  const createMessage = (content: string, role: Message['role']): Message => ({
+  const createMessage = useCallback((content: string, role: Message['role']): Message => ({
     id: generateId(),
     content,
     role,
     timestamp: new Date(),
-  });
+  }), [generateId]);
+
+  // New function to clear all messages
+  const clearMessages = useCallback(() => {
+    setMessages([]);
+    setInput('');
+    setError(null);
+    setIsLoading(false);
+    
+    // Abort any ongoing requests
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = null;
+    }
+  }, []);
 
   const append = useCallback(async (message: Omit<Message, 'id' | 'timestamp'>) => {
     const newMessage = createMessage(message.content, message.role);
@@ -140,7 +155,7 @@ export function useChat(options: UseChatOptions = {}): UseChatReturn {
         abortControllerRef.current = null;
       }
     }
-  }, [api, messages, onResponse, onError]);
+  }, [api, messages, onResponse, onError, createMessage, generateId]);
 
   const reload = useCallback(async () => {
     if (messages.length === 0) return;
@@ -209,6 +224,7 @@ export function useChat(options: UseChatOptions = {}): UseChatReturn {
     setInput,
     handleInputChange,
     handleSubmit,
+    clearMessages,
   };
 }
 
