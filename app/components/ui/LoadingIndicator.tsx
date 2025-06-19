@@ -1,4 +1,3 @@
-import { Bot } from "lucide-react";
 import { motion } from "framer-motion";
 
 const LoadingIndicator = () => {
@@ -10,9 +9,7 @@ const LoadingIndicator = () => {
       transition={{ duration: 0.4 }}
     >
       <div className="message-wrapper">
-        <div className="avatar-container">
-          <Bot className="avatar-icon" />
-        </div>
+        {/* Removed avatar-container section completely */}
 
         <div className="message-bubble assistant">
           <div className="message-header">
