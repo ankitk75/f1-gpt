@@ -1,6 +1,7 @@
 "use client";
 import "./styles/globals.css";
-import { useChat } from "./hooks/useChat";
+// import { useChat } from "./hooks/useChat";
+import { useChat } from "@ai-sdk/react";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AppLayout from "./components/layout/AppLayout";
