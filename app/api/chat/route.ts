@@ -66,7 +66,7 @@ export async function POST(req: Request) {
         sort: {
           $vector: embedding,
         },
-        limit: 5, // Retrieve 5 most relevant documents
+        limit: 5,
       });
 
       const documents = await cursor.toArray();
