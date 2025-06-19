@@ -1,4 +1,3 @@
-import { User, Bot } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
 
@@ -24,13 +23,7 @@ const MessageBubble = ({ message }: MessageBubbleProps) => {
       transition={{ duration: 0.4 }}
     >
       <div className="message-wrapper">
-        <div className="avatar-container">
-          {role === "user" ? (
-            <User className="avatar-icon" />
-          ) : (
-            <Bot className="avatar-icon" />
-          )}
-        </div>
+        {/* Removed avatar-container section completely */}
 
         <div className={`message-bubble ${role}`}>
           <div className="message-header">

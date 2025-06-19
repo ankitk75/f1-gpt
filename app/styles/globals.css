@@ -220,6 +220,76 @@ body {
   backdrop-filter: blur(10px);
 }
 
+/* GitHub Link Styles */
+.github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.github-link:hover {
+  border-color: var(--accent-cyan);
+  background: var(--surface-light);
+  box-shadow: 0 4px 16px rgba(0, 245, 255, 0.2);
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.github-link:hover .github-icon {
+  color: var(--accent-cyan);
+}
+
+/* Update header-right to accommodate the new element */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Reduced gap slightly for better spacing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .github-link {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .github-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-right {
+    gap: 0.75rem;
+  }
+  
+  .github-link {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .github-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header-right {
@@ -374,6 +444,8 @@ body {
   border-color: var(--accent-cyan);
 }
 
+
+
 .feature-header {
   display: flex;
   align-items: center;
@@ -452,9 +524,11 @@ body {
 }
 
 /* Message Bubbles */
+/* Updated Message Styles - Without Avatars */
 .message-container {
   display: flex;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .message-container.user {
@@ -467,39 +541,11 @@ body {
 
 .message-wrapper {
   display: flex;
-  gap: 0.75rem;
   max-width: 80%;
   align-items: flex-start;
 }
 
-.message-container.user .message-wrapper {
-  flex-direction: row-reverse;
-}
-
-.avatar-container {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
-}
-
-.message-container.user .avatar-container {
-  background: var(--gradient-secondary);
-  border: none;
-}
-
-.avatar-icon {
-  width: 20px;
-  height: 20px;
-  color: var(--text-primary);
-}
-
+/* Remove avatar-related styles and adjust bubble positioning */
 .message-bubble {
   background: var(--glass-bg);
   border: 1px solid var(--border-color);
@@ -508,6 +554,7 @@ body {
   backdrop-filter: blur(20px);
   box-shadow: var(--glass-shadow);
   position: relative;
+  width: 100%;
 }
 
 .message-bubble.user {
@@ -578,6 +625,17 @@ body {
 
 .message-content li {
   margin: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .message-wrapper {
+    max-width: 95%;
+  }
+  
+  .message-bubble {
+    padding: 1rem;
+  }
 }
 
 /* Loading Animation */

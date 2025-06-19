@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { FaGithub } from "react-icons/fa"; // Import GitHub icon
 
 interface HeaderProps {
   onBackToHome?: () => void;
@@ -25,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({ onBackToHome }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="header-content">
+        {/* Clickable Brand Section */}
         <motion.div
           className="clickable-brand"
           onClick={onBackToHome}
@@ -50,6 +52,18 @@ const Header: React.FC<HeaderProps> = ({ onBackToHome }) => {
               minute: "2-digit",
             })}
           </div>
+          {/* GitHub Link */}
+          <motion.a
+            href="https://github.com/ankitk75/f1-gpt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-link"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <FaGithub className="github-icon" />
+          </motion.a>
         </div>
       </div>
     </motion.header>
