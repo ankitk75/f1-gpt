@@ -66,7 +66,7 @@ export async function POST(req: Request) {
         sort: {
           $vector: embedding,
         },
-        limit: 5,
+        limit: 7,
       });
 
       const documents = await cursor.toArray();
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
       docContext = JSON.stringify(docsMap);
       
       // Truncate context to save tokens on the API call
-      const maxContextLength = 2000;
+      const maxContextLength = 3000;
       if (docContext.length > maxContextLength) {
         docContext = docContext.substring(0, maxContextLength) + "...";
       }

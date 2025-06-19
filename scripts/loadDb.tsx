@@ -22,34 +22,133 @@ const embeddings = new GoogleGenerativeAIEmbeddings({
 });
 
 const f1Data = [
-  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-f1-drivers-championship.53MjXJzTDxQnfxfoCLnxNZ",
-  "https://www.formula1.com/en/latest/article/drivers-teams-cars-circuits-and-more-everything-you-need-to-know-about.7iQfL3Rivf1comzdqV5jwc",
-  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-formula-1-grand-prix-calendar.VEmteiTb3F3tE95A7qke7",
+  // Race Results
 
   "https://www.formula1.com/en/results/2025/races",
+
+  "https://www.formula1.com/en/results/2025/races/1254/australia/race-result",
+  "https://www.formula1.com/en/results/2025/races/1255/china/race-result",
+  "https://www.formula1.com/en/results/2025/races/1256/japan/race-result",
+  "https://www.formula1.com/en/results/2025/races/1257/bahrain/race-result",
+  "https://www.formula1.com/en/results/2025/races/1258/saudi-arabia/race-result",
+  "https://www.formula1.com/en/results/2025/races/1259/miami/race-result",
+  "https://www.formula1.com/en/results/2025/races/1260/emilia-romagna/race-result",
+  "https://www.formula1.com/en/results/2025/races/1261/monaco/race-result",
+  "https://www.formula1.com/en/results/2025/races/1262/spain/race-result",
+  "https://www.formula1.com/en/results/2025/races/1263/canada/race-result",
+
+  "https://www.formula1.com/en/results/2024/races",
+
+  "https://www.formula1.com/en/results/2024/races/1229/bahrain/race-result",
+  "https://www.formula1.com/en/results/2024/races/1230/saudi-arabia/race-result",
+  "https://www.formula1.com/en/results/2024/races/1231/australia/race-result",
+  "https://www.formula1.com/en/results/2024/races/1232/japan/race-result",
+  "https://www.formula1.com/en/results/2024/races/1233/china/race-result",
+  "https://www.formula1.com/en/results/2024/races/1234/miami/race-result",
+  "https://www.formula1.com/en/results/2024/races/1235/emilia-romagna/race-result",
+  "https://www.formula1.com/en/results/2024/races/1236/monaco/race-result",
+  "https://www.formula1.com/en/results/2024/races/1237/canada/race-result",
+  "https://www.formula1.com/en/results/2024/races/1238/spain/race-result",
+  "https://www.formula1.com/en/results/2024/races/1239/austria/race-result",
+  "https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result",
+  "https://www.formula1.com/en/results/2024/races/1241/hungary/race-result",
+  "https://www.formula1.com/en/results/2024/races/1242/belgium/race-result",
+  "https://www.formula1.com/en/results/2024/races/1243/netherlands/race-result",
+  "https://www.formula1.com/en/results/2024/races/1244/italy/race-result",
+  "https://www.formula1.com/en/results/2024/races/1245/azerbaijan/race-result",
+  "https://www.formula1.com/en/results/2024/races/1246/singapore/race-result",
+  "https://www.formula1.com/en/results/2024/races/1247/united-states/race-result",
+  "https://www.formula1.com/en/results/2024/races/1248/mexico/race-result",
+  "https://www.formula1.com/en/results/2024/races/1249/brazil/race-result",
+  "https://www.formula1.com/en/results/2024/races/1250/las-vegas/race-result",
+  "https://www.formula1.com/en/results/2024/races/1251/qatar/race-result",
+  "https://www.formula1.com/en/results/2024/races/1252/abu-dhabi/race-result",
+
+  "https://www.formula1.com/en/results/2023/races",
+  "https://www.formula1.com/en/results/2022/races",
+  "https://www.formula1.com/en/results/2021/races",
+  "https://www.formula1.com/en/results/2020/races",
+  "https://www.formula1.com/en/results/2019/races",
+  "https://www.formula1.com/en/results/2018/races",
+
+  // Drivers and Teams
+
   "https://www.formula1.com/en/results/2025/drivers",
+  "https://www.formula1.com/en/results/2024/drivers",
+  "https://www.formula1.com/en/results/2023/drivers",
+  "https://www.formula1.com/en/results/2022/drivers",
+  "https://www.formula1.com/en/results/2021/drivers",
+  "https://www.formula1.com/en/results/2020/drivers",
+  "https://www.formula1.com/en/results/2019/drivers",
+  "https://www.formula1.com/en/results/2018/drivers",
+
   "https://www.formula1.com/en/results/2025/team",
+  "https://www.formula1.com/en/results/2024/team",
+  "https://www.formula1.com/en/results/2023/team",
+  "https://www.formula1.com/en/results/2022/team",
+  "https://www.formula1.com/en/results/2021/team",
+  "https://www.formula1.com/en/results/2020/team",
+  "https://www.formula1.com/en/results/2019/team",
+  "https://www.formula1.com/en/results/2018/team",
+
+  // Beginners Guide and Resources
+
+  "https://www.formula1.com/en/latest/article/drivers-teams-cars-circuits-and-more-everything-you-need-to-know-about.7iQfL3Rivf1comzdqV5jwc",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-f1-drivers-championship.53MjXJzTDxQnfxfoCLnxNZ",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-f1-constructors-championship.66nTfWSqrUYv3bnbosPkHV",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-formula-1-grand-prix-calendar.VEmteiTb3F3tE95A7qke7",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-formula-1-weekend.5RFZzGXNhEi9AEuMXwo987",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-f1-sprint.55yJBEiF7vYkZEwSV9lZJ9",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-1-tyres.61SvF0Kfg29UR2SPhakDqd",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-1-flags.T5DqOqbWI6S4Va8Y5yMld",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-f1-penalties.5lne3FfE8IXpGOagsmfq90",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-1-engine-and-gearbox-penalties.2TSy7BFgEvdNLojGLWS3F1",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-f1-pre-season-testing.3CuYMLp6etxlynKLz0j7Ev",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-f1-car-launches.5njwLoM1KId9QBthP9PAOH",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-formula-1-super-licence.17NaiBXjs0O6SWZUIXrv9U",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-2.1qUx4JXhT6O6T29wCwitu4",
+  "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-3.2MvGUgXyuxlNURfEnqq0G6",
+
+  // News and Articles
+
+  "https://www.nytimes.com/athletic/6396003/2025/06/01/max-verstappen-potential-race-ban-spanish-grand-prix/",
+  "https://www.nytimes.com/athletic/6336997/2025/05/12/max-verstappen-red-bull-mclaren-f1-2025/",
+  "https://www.es-sport.ae/f1-2025-championship-standings-highlights-mclaren-dominates-early/",
+  "https://www.the-race.com/formula-1/red-bull-lodges-protest-against-canadian-gp-winner-russell/",
+  "https://www.formula1.com/en/latest/article/hamilton-rues-missed-opportunity-on-ferrari-debut-after-very-very-tricky.7jb6O12mxhuRCwxIIc8R0i",
+  "https://racingnews365.com/formula-1-standings-2025",
+  "https://www.nytimes.com/athletic/6381652/2025/05/26/lando-norris-monaco-gp-f1-championship/",
+  "https://www.nytimes.com/athletic/6434706/2025/06/19/george-russell-canada-win-protest/",
+  "https://www.the-race.com/formula-1/where-ferrari-is-failing-massively-in-its-rough-2025/",
+
+  // Driver Salaries and Financials
 
   "https://motorsporttickets.com/blog/f1-driver-salaries-how-much-formula-1-drivers-earn/",
-  "https://www.forbes.com/sites/brettknight/2024/12/10/formula-1s-highest-paid-drivers-2024/",
 
-  "https://www.formula1.com/en/latest/article/whod-have-thought-wed-have-an-f1-movie-with-brad-pitt-behind-the-scenes-of.66fCStVKBC5NsLTckqx5Dl",
-  "https://www.forbes.com/sites/timlammers/2025/06/17/f1-the-movie-reviews-does-brad-pitt-power-formula-1-racing-thriller/",
-  "https://www.forbes.com/sites/dancancian/2025/05/24/2025-monaco-grand-prix-everything-f1-fans-need-to-know/",
+  // Wikipedia
 
+  "https://en.wikipedia.org/wiki/Formula_One",
+  "https://en.wikipedia.org/wiki/F1_(film)",
+  "https://en.wikipedia.org/wiki/2026_Formula_One_World_Championship",
   "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship",
   "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
   "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-  "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship",
   "https://en.wikipedia.org/wiki/History_of_Formula_One",
+
+  //   "https://motorsporttickets.com/blog/f1-driver-salaries-how-much-formula-1-drivers-earn/",
+  //   "https://www.forbes.com/sites/brettknight/2024/12/10/formula-1s-highest-paid-drivers-2024/",
+
+  //   "https://www.formula1.com/en/latest/article/whod-have-thought-wed-have-an-f1-movie-with-brad-pitt-behind-the-scenes-of.66fCStVKBC5NsLTckqx5Dl",
+  //   "https://www.forbes.com/sites/timlammers/2025/06/17/f1-the-movie-reviews-does-brad-pitt-power-formula-1-racing-thriller/",
+  //   "https://www.forbes.com/sites/dancancian/2025/05/24/2025-monaco-grand-prix-everything-f1-fans-need-to-know/",
 ];
 
 const client = new DataAPIClient(ASTRA_DB_APPLICATION_TOKEN);
 const db = client.db(ASTRA_DB_API_ENDPOINT, { namespace: ASTRA_DB_NAMESPACE });
 
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 512,
-  chunkOverlap: 100,
+  chunkSize: 800,
+  chunkOverlap: 120,
 });
 
 const createCollection = async (
@@ -219,6 +318,8 @@ const scrapePage = async (url: string): Promise<string> => {
 createCollection()
   .then(() => loadSampleData())
   .catch(console.error);
+
+// if you want to deploy it locally you can use BGE model
 
 // import { DataAPIClient } from "@datastax/astra-db-ts";
 // import { PlaywrightWebBaseLoader } from "@langchain/community/document_loaders/web/playwright";
@@ -659,6 +760,8 @@ createCollection()
 // createCollection()
 //   .then(() => loadSampleData())
 //   .catch(console.error);
+
+// if you want to deploy it on Astra DB with OpenAI embeddings
 
 // import { DataAPIClient } from "@datastax/astra-db-ts";
 // import { PuppeteerWebBaseLoader } from "@langchain/community/document_loaders/web/puppeteer";
