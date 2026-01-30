@@ -15,14 +15,14 @@ const {
 
 // Initialize Gemini 2.0 Flash for the chat model
 const gemini = new ChatGoogleGenerativeAI({
-  model: "gemini-2.0-flash",
+  model: "gemini-2.5-flash",
   temperature: 0,
   apiKey: GOOGLE_API_KEY,
 });
 
 // Initialize Gemini for the embedding model
 const embeddings = new GoogleGenerativeAIEmbeddings({
-  model: "text-embedding-004", // 768 dimensions
+  model: "gemini-embedding-001", // 768 dimensions
   apiKey: GOOGLE_API_KEY,
 });
 
